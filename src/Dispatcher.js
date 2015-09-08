@@ -24,3 +24,5 @@ class Dispatcher{
   }
 
 }
+
+ export default Dispatcher;
