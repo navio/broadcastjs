@@ -1,0 +1,15 @@
+{
+  "name": "broadcastjs",
+  "version": "1.0.0",
+  "description": "Broadcast Information accross functions.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Broadcast",
+    "Messages"
+  ],
+  "author": "Alberto Navarro @navio",
+  "license": "MIT"
+}
