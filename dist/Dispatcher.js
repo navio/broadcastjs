@@ -24,7 +24,7 @@ var Dispatcher = (function () {
   }, {
     key: "unsubscribeListener",
     value: function unsubscribeListener(listener) {
-      return this.listeners.indexOf(listener) > -1 ? this.listeners.splice(listener) : null;
+      return this.listeners.indexOf(listener) > -1 ? this.listeners.splice(listener, 1) : null;
     }
   }, {
     key: "pushMessage",

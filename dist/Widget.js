@@ -16,12 +16,23 @@ var Widget = (function () {
     this.name = name || "Widget name";
     this.dispatcher = dispatcher;
     this.actions = actions || ["Listen", "Broadcast"];
+    this.currentState = null;
   }
 
   _createClass(Widget, [{
-    key: "getName",
-    value: function getName() {
+    key: "_getName",
+    value: function _getName() {
       return this.name;
+    }
+  }, {
+    key: "_setState",
+    value: function _setState(message) {
+      this.currentState = message;
+    }
+  }, {
+    key: "_getState",
+    value: function _getState() {
+      return this.currentState;
     }
   }, {
     key: "updateDispatcher",
@@ -37,11 +48,15 @@ var Widget = (function () {
   }, {
     key: "callbackProvider",
     value: function callbackProvider() {
-      var local = this.getName();
-
+      var widgetName = this._getName();
+      var that = this;
+      var save = function save(message) {
+        that._setState(message);
+      };
       return function (message, config) {
         // Do something with message update
-        console.log("widget " + local + " reacts on:", message);
+        save(message);
+        console.log("widget " + widgetName + " reacts on:", message);
       };
     }
   }, {

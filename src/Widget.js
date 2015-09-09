@@ -5,11 +5,21 @@ class Widget{
     this.name = name || "Widget name";
     this.dispatcher = dispatcher;
     this.actions = actions || ["Listen","Broadcast"];
+    this.currentState = null;
   }
 
-  getName(){
+  _getName(){
     return this.name;
   }
+
+  _setState(message){
+    this.currentState = message;
+  }
+
+  _getState(){
+    return this.currentState;
+  }
+
 
   updateDispatcher(dispatch){ // Update Dispatch
       this.dispatcher = dispatch;
@@ -20,10 +30,12 @@ class Widget{
   }
 
   callbackProvider(){
-    let local = this.getName();
-
+    let widgetName = this._getName();
+    let that = this;
+    let save = function(message){ that._setState(message) }
     return function (message,config){ // Do something with message update
-              console.log("widget "+ local + " reacts on:",message);
+              save(message);
+              console.log("widget "+ widgetName + " reacts on:",message);
            };
   }
 

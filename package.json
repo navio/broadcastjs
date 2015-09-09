@@ -5,12 +5,15 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "babel src -d dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "Broadcast",
     "Messages"
   ],
   "author": "Alberto Navarro @navio",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^2.3.2"
+  }
 }

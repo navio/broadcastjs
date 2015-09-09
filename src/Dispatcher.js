@@ -11,7 +11,7 @@ class Dispatcher{
 
   unsubscribeListener(listener){
       return ( this.listeners.indexOf(listener) > -1 ) ?
-                this.listeners.splice(listener) : null;
+                this.listeners.splice(listener,1) : null;
   }
 
   pushMessage(Message){ // Validation ?
