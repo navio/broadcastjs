@@ -1,3 +1,5 @@
+
+
 class Widget{
 
   constructor(name,dispatcher,actions){
@@ -46,4 +48,7 @@ class Widget{
   }
 
 }
- export default Widget;
+ export default {
+    name: _getName
+
+ };
