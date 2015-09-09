@@ -1,6 +1,6 @@
 {
   "name": "broadcastjs",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Broadcast Information accross functions.",
   "main": "dist/index.js",
   "scripts": {
@@ -14,6 +14,7 @@
   "author": "Alberto Navarro @navio",
   "license": "MIT",
   "devDependencies": {
+    "assert": "^1.3.0",
     "mocha": "^2.3.2"
   }
 }

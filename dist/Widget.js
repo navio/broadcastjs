@@ -70,8 +70,5 @@ var Widget = (function () {
   return Widget;
 })();
 
-exports["default"] = {
-  name: _getName
-
-};
+exports["default"] = Widget;
 module.exports = exports["default"];

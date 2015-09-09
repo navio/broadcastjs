@@ -48,7 +48,4 @@ class Widget{
   }
 
 }
- export default {
-    name: _getName
-
- };
+ export default Widget;
