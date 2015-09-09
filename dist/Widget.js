@@ -9,31 +9,40 @@ var _createClass = (function () { function defineProperties(target, props) { for
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Widget = (function () {
-  function Widget() {
+  function Widget(name, dispatcher, actions) {
     _classCallCheck(this, Widget);
 
-    var name = "WidgetName";
-    var actions = ["Listen", "Broadcast"];
-    var dispatcher = null;
+    if (!dispatcher) throw "No Dispatcher";
+    this.name = name || "Widget name";
+    this.dispatcher = dispatcher;
+    this.actions = actions || ["Listen", "Broadcast"];
   }
 
   _createClass(Widget, [{
-    key: "setDispatcher",
-    value: function setDispatcher(dispatch) {
-      // Set Dispatch
+    key: "getName",
+    value: function getName() {
+      return this.name;
+    }
+  }, {
+    key: "updateDispatcher",
+    value: function updateDispatcher(dispatch) {
+      // Update Dispatch
       this.dispatcher = dispatch;
     }
   }, {
     key: "subscribeWidget",
     value: function subscribeWidget() {
-      // Submit Call Back To Listener
-      return this.dispatcher.subscribeListener(this.upcomingState);
+      return this.dispatcher.subscribeListener(this.callbackProvider());
     }
   }, {
-    key: "upcomingMessage",
-    value: function upcomingMessage(message, config) {
-      // Do something with message update
-      console.log("newState", message);
+    key: "callbackProvider",
+    value: function callbackProvider() {
+      var local = this.getName();
+
+      return function (message, config) {
+        // Do something with message update
+        console.log("widget " + local + " reacts on:", message);
+      };
     }
   }, {
     key: "broadcastMessage",

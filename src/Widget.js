@@ -1,22 +1,32 @@
 class Widget{
 
-  constructor(){
-    let name = "WidgetName";
-    let actions = ["Listen","Broadcast"];
-    let dispatcher = null;
+  constructor(name,dispatcher,actions){
+    if(!dispatcher) throw "No Dispatcher";
+    this.name = name || "Widget name";
+    this.dispatcher = dispatcher;
+    this.actions = actions || ["Listen","Broadcast"];
   }
 
-  setDispatcher(dispatch){ // Set Dispatch
+  getName(){
+    return this.name;
+  }
+
+  updateDispatcher(dispatch){ // Update Dispatch
       this.dispatcher = dispatch;
   }
 
-  subscribeWidget(){ // Submit Call Back To Listener
-    return this.dispatcher.subscribeListener(this.upcomingState);
+  subscribeWidget(){
+    return this.dispatcher.subscribeListener(this.callbackProvider());
   }
 
-  upcomingMessage(message,config){ // Do something with message update
-    console.log("newState",message);
+  callbackProvider(){
+    let local = this.getName();
+
+    return function (message,config){ // Do something with message update
+              console.log("widget "+ local + " reacts on:",message);
+           };
   }
+
 
   broadcastMessage(message){
     let messageObj = new Message(name,'data');

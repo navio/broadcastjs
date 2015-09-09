@@ -1,9 +1,10 @@
 {
   "name": "broadcastjs",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "Broadcast Information accross functions.",
   "main": "dist/index.js",
   "scripts": {
+    "start": "babel src -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

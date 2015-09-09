@@ -1,26 +1,34 @@
 class Dispatcher{
 
   constructor(){
-      let listeners = [];
+      this.listeners = [];
   }
 
   subscribeListener(listener){
-      listeners.push(listener);
-      return true;
+      this.listeners.push(listener);
+      return listener;
   }
 
   unsubscribeListener(listener){
-      return ( listeners.indexOf(listener) > -1 ) ? listeners.splice(listener) : null;
+      return ( this.listeners.indexOf(listener) > -1 ) ?
+                this.listeners.splice(listener) : null;
   }
 
   pushMessage(Message){ // Validation ?
-    distributeMessage(Message);
+    this.distributeMessage(Message);
   }
 
   distributeMessage(message){
-    listeners.forEach(listener => {
+      this.listeners.forEach(listener => {
       listener(message);
     })
+  }
+
+  _showSubscribers(){
+      this.listeners.forEach(listener => {
+      console.info(listener)
+    })
+    return this.listeners;
   }
 
 }

@@ -14,7 +14,5 @@ var _Widget = require("./Widget");
 
 var _Widget2 = _interopRequireDefault(_Widget);
 
-exports["default"] = {
-  Dispatcher: _Dispatcher2["default"], Widget: _Widget2["default"]
-};
-module.exports = exports["default"];
+exports.Widget = _Widget2["default"];
+exports["default"] = _Dispatcher2["default"];
