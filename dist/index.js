@@ -19,4 +19,5 @@ var _Listener = require("./Listener");
 var _Listener2 = _interopRequireDefault(_Listener);
 
 exports.Widget = _Widget2["default"];
+exports.Listener = _Listener2["default"];
 exports["default"] = _Dispatcher2["default"];
