@@ -48,16 +48,24 @@ var Widget = (function () {
   }, {
     key: "callbackProvider",
     value: function callbackProvider() {
-      var widgetName = this._getName();
       var that = this;
       var save = function save(message) {
         that._setState(message);
       };
-      return function (message, config) {
-        // Do something with message update
-        save(message);
-        console.log("widget " + widgetName + " reacts on:", message);
+      var handler = function handler(message) {
+        that.handler(message);
       };
+      return function (message, config) {
+        //save state and execute handler
+        save(message);
+        handler(message, config);
+      };
+    }
+  }, {
+    key: "handler",
+    value: function handler(message) {
+      //Default
+      console.log("Widget " + this._getName() + " listened:", message);
     }
   }, {
     key: "broadcastMessage",

@@ -31,13 +31,17 @@ class Widget{
   }
 
   callbackProvider(){
-    let widgetName = this._getName();
     let that = this;
     let save = function(message){ that._setState(message) }
-    return function (message,config){ // Do something with message update
+    let handler = function(message){ that.handler(message) }
+    return function (message,config){ //save state and execute handler
               save(message);
-              console.log("widget "+ widgetName + " reacts on:",message);
+              handler(message,config);
            };
+  }
+
+  handler(message){ //Default
+      console.log("Widget "+ this._getName() + " listened:",message);
   }
 
   broadcastMessage(message){
