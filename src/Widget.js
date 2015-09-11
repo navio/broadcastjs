@@ -22,7 +22,6 @@ class Widget{
     return this.currentState;
   }
 
-
   updateDispatcher(dispatch){ // Update Dispatch
       this.dispatcher = dispatch;
   }
@@ -40,7 +39,6 @@ class Widget{
               console.log("widget "+ widgetName + " reacts on:",message);
            };
   }
-
 
   broadcastMessage(message){
     let messageObj = new Message(name,'data');
