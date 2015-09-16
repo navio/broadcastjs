@@ -18,7 +18,7 @@ class Listener {
   }
 
   connectToChannel(channelName,Fn){
-    if (!this.findChannel(channelName)) return addChannel(channelName,Fn);
+    if (!this.findChannel(channelName)) return this.addChannel(channelName,Fn);
     if (this.isChannelAvailable(channelName)){
       this.channels[channelName] = Fn;
       return true;
