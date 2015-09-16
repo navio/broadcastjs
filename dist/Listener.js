@@ -37,7 +37,8 @@ var Listener = (function () {
   }, {
     key: "connectToChannel",
     value: function connectToChannel(channelName, Fn) {
-      if (isChannelAvailable(channelName)) {
+      if (!this.findChannel(channelName)) return addChannel(channelName, Fn);
+      if (this.isChannelAvailable(channelName)) {
         this.channels[channelName] = Fn;
         return true;
       } else {
@@ -47,7 +48,7 @@ var Listener = (function () {
   }, {
     key: "disconnectToChannel",
     value: function disconnectToChannel(channelName) {
-      if (isChannelAvailable(channelName)) {
+      if (this.isChannelAvailable(channelName)) {
         this.channels[channelName] = null;
         return true;
       } else {
@@ -62,12 +63,13 @@ var Listener = (function () {
   }, {
     key: "getChannel",
     value: function getChannel(channel) {
-      return findChannel(findChannel) ? this.channels[channel] : false;
+      return this.findChannel(channel) ? this.channels[channel] : false;
     }
   }, {
     key: "addChannel",
     value: function addChannel(name, fn) {
       this.channels[name] = fn;
+      return true;
     }
   }]);
 
