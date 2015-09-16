@@ -9,7 +9,7 @@ class Listener {
 
   findChannel(channelName){
     let channelLocation = Object.keys(this.channels).indexOf(channelName);
-    return ( channelLocation > -1 )? channelLocation : false;
+    return ( channelLocation > -1 ) ? true : false;
   }
 
   isChannelAvailable(channelName){

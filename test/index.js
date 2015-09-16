@@ -58,6 +58,7 @@ describe("Widgets",function(){
           var found1 = emmiter.findChannel('TV');
           assert.equal(true,found);
           assert.equal(false,found1);
+          assert.equal(false,found1);
       });
 
 

@@ -26,7 +26,7 @@ var Listener = (function () {
     key: "findChannel",
     value: function findChannel(channelName) {
       var channelLocation = Object.keys(this.channels).indexOf(channelName);
-      return channelLocation > -1 ? channelLocation : false;
+      return channelLocation > -1 ? true : false;
     }
   }, {
     key: "isChannelAvailable",
