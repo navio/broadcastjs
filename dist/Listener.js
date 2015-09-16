@@ -63,7 +63,7 @@ var Listener = (function () {
   }, {
     key: "getChannel",
     value: function getChannel(channel) {
-      return this.findChannel(channel) ? this.channels[channel] : false;
+      return this.channels[channel];
     }
   }, {
     key: "addChannel",
