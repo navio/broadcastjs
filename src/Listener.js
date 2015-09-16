@@ -1,7 +1,4 @@
-class Connection{
-
-}
-
+// Listener Registration
 class Listener {
   constructor(channels){ // Array ["Voice","Canvas","Sound"]
       let channelObj = {};
@@ -37,6 +34,10 @@ class Listener {
     }else{
       return false;
     }
+  }
+
+  getChannels(){
+    return this.channels;
   }
 
 }
