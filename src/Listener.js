@@ -18,8 +18,8 @@ class Listener {
   }
 
   connectToChannel(channelName,Fn){
-    if (!findChannel(channelName)) return addChannel(channelName,Fn);
-    if (isChannelAvailable(channelName)){
+    if (!this.findChannel(channelName)) return addChannel(channelName,Fn);
+    if (this.isChannelAvailable(channelName)){
       this.channels[channelName] = Fn;
       return true;
     }else{
@@ -28,7 +28,7 @@ class Listener {
   }
 
   disconnectToChannel(channelName){
-    if (isChannelAvailable(channelName)){
+    if (this.isChannelAvailable(channelName)){
       this.channels[channelName] = null;
       return true;
     }else{
@@ -41,7 +41,7 @@ class Listener {
   }
 
   getChannel(channel){
-    return findChannel(findChannel) ? this.channels[channel] : false;
+    return this.findChannel(channel) ? this.channels[channel] : false;
   }
 
   addChannel(name,fn){
