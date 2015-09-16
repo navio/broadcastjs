@@ -41,7 +41,7 @@ class Listener {
   }
 
   getChannel(channel){
-    return this.findChannel(channel) ? this.channels[channel] : false;
+    return this.channels[channel];
   }
 
   addChannel(name,fn){
