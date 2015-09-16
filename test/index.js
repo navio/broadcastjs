@@ -39,3 +39,29 @@ describe("Widgets",function(){
 
   });
 });
+
+
+  describe("Emitter Listener Should", function(){
+      var emmiter = new dispatch().getEmitter();
+      // var widget1 = new Widget("one",dispatcher);
+      it('Initialize with one Channel', function () {
+          assert.equal(1,Object.keys(emmiter.getChannels()).length)
+      });
+
+      it('Add Voice Channel', function () {
+          emmiter.addChannel('Voice');
+          assert.equal(2,Object.keys(emmiter.getChannels()).length)
+      });
+
+      it('Find Channel', function () {
+          var found = emmiter.findChannel('Voice');
+          var found1 = emmiter.findChannel('TV');
+          assert.equal(true,found);
+          assert.equal(false,found1);
+      });
+
+
+
+
+
+  });

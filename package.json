@@ -1,6 +1,6 @@
 {
   "name": "broadcastjs",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Broadcast Information accross functions.",
   "main": "dist/index.js",
   "scripts": {
