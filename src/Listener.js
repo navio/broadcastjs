@@ -1,10 +1,9 @@
 // Listener Registration
 class Listener {
   constructor(channels){ // Array ["Voice","Canvas","Sound"]
-      let channelObj = {};
-      channels.forEach(channel => {
-        channelObj[channel] = null;
-      }); // {"Voice":null,"Canvas":null,"Sound":null}
+      let channelObj = { global:null };
+      if(channels) channels.forEach(channel => { channelObj[channel] = null; })
+      // {"Voice":null,"Canvas":null,"Sound":null}
       this.channels = channelObj;
   }
 
@@ -38,6 +37,14 @@ class Listener {
 
   getChannels(){
     return this.channels;
+  }
+
+  getChannel(channel){
+    return findChannel(findChannel) ? this.channels[channel] : false;
+  }
+
+  addChannel(name,fn){
+      this.channels[name] = fn;
   }
 
 }

@@ -1,7 +1,13 @@
+import Listener from './Listener';
 class Dispatcher{
 
   constructor(){
       this.listeners = [];
+      this.emiter = new Listener();
+  }
+
+  getEmitter(){
+    return this.emiter;
   }
 
   subscribeListener(listener){

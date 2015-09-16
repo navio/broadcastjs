@@ -14,10 +14,11 @@ var Listener = (function () {
     _classCallCheck(this, Listener);
 
     // Array ["Voice","Canvas","Sound"]
-    var channelObj = {};
-    channels.forEach(function (channel) {
+    var channelObj = { global: null };
+    if (channels) channels.forEach(function (channel) {
       channelObj[channel] = null;
-    }); // {"Voice":null,"Canvas":null,"Sound":null}
+    });
+    // {"Voice":null,"Canvas":null,"Sound":null}
     this.channels = channelObj;
   }
 
@@ -57,6 +58,16 @@ var Listener = (function () {
     key: "getChannels",
     value: function getChannels() {
       return this.channels;
+    }
+  }, {
+    key: "getChannel",
+    value: function getChannel(channel) {
+      return findChannel(findChannel) ? this.channels[channel] : false;
+    }
+  }, {
+    key: "addChannel",
+    value: function addChannel(name, fn) {
+      this.channels[name] = fn;
     }
   }]);
 
